@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcard Reader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">FR</div>
+        <div class="title">Flashcard Reader</div>
+      </div>
+      <div class="actions">
+        <button id="startBtn" class="btn primary">Start Camera</button>
+        <button id="stopBtn" class="btn">Stop</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel video-panel" id="videoPanel">
+        <div class="video-wrap" id="videoWrap">
+          <video id="video" autoplay playsinline></video>
+          <canvas id="canvas" class="hidden"></canvas>
+          <div id="stabilityIndicator" class="stability">
+            <div class="bar" id="stabilityBar"></div>
+          </div>
+          <div id="overlay" class="overlay"></div>
+        </div>
+        <div class="detected">
+          <div class="label">Detected Text</div>
+          <div id="detectedText" class="value">–</div>
+        </div>
+      </section>
+
+      <section class="panel card" id="cardPanel">
+        <div class="card-header">
+          <div class="pill" id="categoryPill">Category</div>
+          <h2 id="keywordTitle">Waiting for keyword…</h2>
+        </div>
+        <div class="card-body">
+          <div class="info">
+            <h3>Explanation</h3>
+            <p id="explanation">Point your camera at a flashcard title.</p>
+            <h3>Fun Fact</h3>
+            <p id="funFact">Once detected stably, details will appear and be read aloud.</p>
+          </div>
+          <div class="media">
+            <img id="imageDisplay" alt="" class="hidden" />
+            <video id="localVideo" class="hidden" controls playsinline></video>
+            <div id="videoContainer" class="video-container hidden"></div>
+            <div class="media-actions" id="mediaActions">
+              <a id="googleImagesLink" href="#" target="_blank" class="btn" rel="noopener">Google Images</a>
+              <a id="youtubeSearchLink" href="#" target="_blank" class="btn" rel="noopener">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <audio id="ttsAudio"></audio>
+  <script src="/static/app.js"></script>
+</body>
+</html>
